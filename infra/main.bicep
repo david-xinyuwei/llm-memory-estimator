@@ -38,11 +38,14 @@ var uniqueSuffix = uniqueString(resourceGroup().id, environmentName)
 
 // Web App
 module web 'core/host/appservice.bicep' = {
-  name: 'web'
+  name: 'web-${environmentName}'
   params: {
     name: 'llm-mem-${environmentName}-${uniqueSuffix}'
     location: location
-    tags: union(tags, { 'azd-service-name': 'web' })
+    tags: union(tags, { 
+      'azd-service-name': 'web'
+      'azd-env-name': environmentName
+    })
     appServicePlanId: appServicePlan.outputs.id
     runtimeName: 'python'
     runtimeVersion: '3.11'
