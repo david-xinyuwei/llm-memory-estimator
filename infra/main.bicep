@@ -49,7 +49,7 @@ module web 'core/host/appservice.bicep' = {
     appServicePlanId: appServicePlan.outputs.id
     runtimeName: 'python'
     runtimeVersion: '3.11'
-    appCommandLine: 'startup.sh'
+    appCommandLine: 'python -m streamlit run src/web_estimator.py --server.port=8000 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false'
     ftpsState: 'Disabled'
     appSettings: {
       SCM_DO_BUILD_DURING_DEPLOYMENT: 'true'
