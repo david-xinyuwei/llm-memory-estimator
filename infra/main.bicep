@@ -26,7 +26,7 @@ module appServicePlan 'core/host/appserviceplan.bicep' = {
     location: location
     tags: tags
     sku: {
-      name: 'B1'
+      name: 'B2'
       tier: 'Basic'
     }
     reserved: true // Required for Linux
