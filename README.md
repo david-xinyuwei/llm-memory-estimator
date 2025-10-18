@@ -3,12 +3,23 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Azure](https://img.shields.io/badge/Azure-Ready-0078D4?logo=microsoft-azure)](https://azure.microsoft.com/)
+[![Golden Path](https://img.shields.io/badge/Golden%20Path-Compliant-gold?logo=github)](https://github.com/Azure-Samples/azd-golden-paths)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-success?logo=streamlit)](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)
 
 A comprehensive tool for estimating memory consumption of Large Language Models (LLMs) during inference. Supports multiple interfaces (CLI, Web, Notebook) and one-click deployment to Azure.
 
+## 🚀 Try It Now!
+
+**[✨ Live Demo →](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)**
+
+No installation required! Try the web application directly in your browser.
+
 ## Table of Contents
 
+- [🚀 Try It Now!](#-try-it-now)
+- [📸 Screenshots](#-screenshots)
 - [Scenario](#scenario)
+- [✨ Features](#-features)
 - [Azure One-Click Deployment](#azure-one-click-deployment)
 - [Local Deployment](#local-deployment)
 - [Usage Options](#usage-options)
@@ -16,6 +27,28 @@ A comprehensive tool for estimating memory consumption of Large Language Models 
 - [Memory Calculation Formula](#memory-calculation-formula)
 - [Limitations](#limitations)
 - [Contributing](#contributing)
+
+---
+
+## 📸 Screenshots
+
+### Web Interface
+
+![Web Interface Screenshot](docs/images/1.png)
+
+*Interactive Streamlit web interface for real-time memory estimation*
+
+### Model Configuration
+
+![Model Configuration](docs/images/2.png)
+
+*Automatic model parameter detection from Hugging Face*
+
+### Memory Results
+
+![Memory Results](docs/images/3.png)
+
+*Detailed memory breakdown with optimization recommendations*
 
 ---
 
@@ -39,6 +72,34 @@ This tool provides accurate memory estimates by considering:
 - Compare memory requirements across different quantization levels
 - Plan GPU requirements for batch inference scenarios
 - Optimize deployment costs by finding the right precision/hardware balance
+
+---
+
+## ✨ Features
+
+### 🎯 Core Capabilities
+
+- **🔍 Accurate Memory Estimation**: Calculate inference memory for any Hugging Face model
+- **⚡ Real-time Calculations**: Instant results as you adjust parameters
+- **🎨 Multiple Interfaces**: CLI, Web UI, and Jupyter Notebook
+- **☁️ One-Click Azure Deployment**: Deploy to cloud in minutes with `azd up`
+- **🔧 Optimization Analysis**: Compare FlashAttention, GQA, and quantization effects
+- **📊 Visual Breakdown**: Understand memory distribution across components
+
+### 🛠️ Supported Models
+
+- **Llama Family**: Llama 2, Llama 3, Llama 3.1, Llama 3.3
+- **Mistral**: Mistral 7B, Mixtral 8x7B
+- **Qwen**: Qwen 1.5, Qwen 2, Qwen 2.5
+- **DeepSeek**: DeepSeek-V2, DeepSeek-Coder
+- **And more**: Any Hugging Face transformer model
+
+### 🎛️ Customization Options
+
+- **Precision Levels**: FP32, FP16, INT8, INT4
+- **Batch Sizes**: 1 to 1000+
+- **Sequence Lengths**: Up to 128K tokens
+- **Optimizations**: FlashAttention, Grouped Query Attention, Paged Attention
 
 ---
 
