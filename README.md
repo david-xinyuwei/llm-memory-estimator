@@ -12,14 +12,12 @@ A comprehensive tool for estimating memory consumption of Large Language Models 
 
 **[✨ Live Demo →](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)**
 
-Experience the tool instantly! No installation required - try the web application directly in your browser at:
-
-**https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/**
+Experience the tool instantly - no installation required!
 
 ## Table of Contents
 
 - [🚀 Try It Now!](#-try-it-now)
-- [📸 Screenshots](#-screenshots)
+- [📸 Live Demo](#-live-demo)
 - [Scenario](#scenario)
 - [✨ Features](#-features)
 - [Azure One-Click Deployment](#azure-one-click-deployment)
@@ -32,26 +30,21 @@ Experience the tool instantly! No installation required - try the web applicatio
 
 ---
 
-## 📸 Demo & Screenshots
+## 📸 Live Demo
 
-### 🎥 Live Demo
-
-**Try it now**: https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
+**🌐 Try it now**: https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
 
 > **Video walkthrough coming soon!**  
 > A comprehensive screencast will be added to demonstrate the web interface in action.
 
-### Key Features Shown
+### Key Features
 
-The web interface provides:
-
-- **Automatic Model Detection**: Enter any Hugging Face model name (e.g., `meta-llama/Llama-3.3-70B-Instruct`) and parameters are fetched automatically
-- **Real-time Configuration**: Adjust precision (FP32/FP16/INT8/INT4), batch size, sequence length with interactive controls
-- **Optimization Toggles**: Enable/disable FlashAttention and Grouped Query Attention
-- **Detailed Breakdown**: See parameter memory, activation memory, KV cache, and total estimates
-- **Visual Results**: Clear memory distribution and hardware recommendations
-
-![Web Interface](docs/images/1.png)
+- **Automatic Model Detection**: Fetches model architecture from Hugging Face Hub (e.g., `meta-llama/Llama-3.3-70B-Instruct`)
+- **Manual Parameter Input**: Enter model parameters (billions) and sequence length for accurate estimation
+- **Real-time Configuration**: Adjust precision (FP32/FP16/INT8/INT4), batch size with interactive sliders
+- **Optimization Toggles**: Enable/disable FlashAttention and Grouped Query Attention (GQA)
+- **Detailed Breakdown**: View parameter memory, activation memory, KV cache, and total estimates
+- **Visual Results**: Clear memory distribution with hardware recommendations
 
 ---
 
