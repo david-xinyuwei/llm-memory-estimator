@@ -6,13 +6,15 @@
 [![Golden Path](https://img.shields.io/badge/Golden%20Path-Compliant-gold?logo=github)](https://github.com/Azure-Samples/azd-golden-paths)
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-success?logo=streamlit)](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)
 
-A comprehensive tool for estimating memory consumption of Large Language Models (LLMs) during inference. Supports multiple interfaces (CLI, Web, Notebook) and one-click deployment to Azure.
+A comprehensive tool for estimating memory consumption of Large Language Models (LLMs) during inference. Supports CLI and Web interfaces with one-click deployment to Azure.
 
 ## 🚀 Try It Now!
 
 **[✨ Live Demo →](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)**
 
-No installation required! Try the web application directly in your browser.
+Experience the tool instantly! No installation required - try the web application directly in your browser at:
+
+**https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/**
 
 ## Table of Contents
 
@@ -100,8 +102,9 @@ This tool provides accurate memory estimates by considering:
 
 - **🔍 Accurate Memory Estimation**: Calculate inference memory for any Hugging Face model
 - **⚡ Real-time Calculations**: Instant results as you adjust parameters
-- **🎨 Multiple Interfaces**: CLI, Web UI, and Jupyter Notebook
+- **🎨 Multiple Interfaces**: CLI and Web UI
 - **☁️ One-Click Azure Deployment**: Deploy to cloud in minutes with `azd up`
+- **🌐 Live Demo Available**: Try it now at https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
 - **🔧 Optimization Analysis**: Compare FlashAttention, GQA, and quantization effects
 - **📊 Visual Breakdown**: Understand memory distribution across components
 
@@ -371,9 +374,30 @@ Get your token at: https://huggingface.co/settings/tokens
 
 ## Usage Options
 
-This tool provides three interfaces for different use cases:
+This tool provides two interfaces for different use cases:
 
-### 1. Command Line Interface (Quick Estimates)
+### 1. Web Interface (Recommended)
+
+**🌐 Online Demo**: https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
+
+Best for: Interactive exploration, parameter tuning, visualization
+
+**Features**:
+- Real-time memory calculations
+- Automatic model configuration from Hugging Face Hub
+- Adjust batch size, sequence length, precision with sliders
+- Toggle FlashAttention, GQA optimizations
+- Instant memory updates
+- Visual memory breakdown
+
+**Local Setup**:
+```bash
+streamlit run src/web_estimator.py
+```
+
+Access at: http://localhost:8501
+
+### 2. Command Line Interface (Quick Estimates)
 
 Best for: Quick calculations, scripting, CI/CD integration
 
@@ -408,45 +432,6 @@ Memory Breakdown:
 Recommendation: Use 2x A100 80GB GPUs with tensor parallelism
 ```
 
-### 2. Streamlit Web Interface (Interactive Analysis)
-
-Best for: Interactive exploration, parameter tuning, visualization
-
-```bash
-streamlit run src/web_estimator.py
-```
-
-Opens a web browser with an interactive interface featuring:
-- Real-time memory calculations
-- Sliders for batch size and sequence length
-- Checkboxes for optimization techniques
-- Visual memory breakdown
-- Export results
-
-**Access**: http://localhost:8501
-
-**Features**:
-- Input model names from Hugging Face Hub
-- Adjust parameters with sliders
-- Toggle FlashAttention, GQA optimizations
-- See instant memory updates
-- Compare different configurations
-
-### 3. Jupyter Notebook (Educational Deep-Dive)
-
-Best for: Learning, customization, detailed analysis
-
-```bash
-jupyter notebook notebooks/memory_estimation.ipynb
-```
-
-**Contains**:
-- Detailed explanations of formulas
-- Step-by-step calculations
-- Memory breakdown visualizations
-- Customizable calculations
-- Optimization recommendations
-
 ---
 
 ## Architecture
@@ -455,8 +440,8 @@ jupyter notebook notebooks/memory_estimation.ipynb
 
 ```
 User Interface Layer
-  CLI Tool      Streamlit      Jupyter
-  (Terminal)     Web App       Notebook
+  CLI Tool              Streamlit Web App
+  (Terminal)            (Browser/Cloud)
 
 Core Calculation Layer
   Memory Estimator Engine
@@ -486,13 +471,12 @@ Estimate-Inference-Memory/
     __init__.py
     cli_estimator.py            # Command-line interface
     web_estimator.py            # Streamlit web interface
- notebooks/
-    memory_estimation.ipynb     # Educational Jupyter notebook
  scripts/
     deploy-azd.ps1              # Azure deployment (azd)
     setup.ps1                   # Local setup (Windows)
     setup.sh                    # Local setup (Linux/Mac)
  requirements.txt                # Python dependencies
+ pip.conf                        # PyTorch CPU-only configuration
  startup.sh                      # Azure App Service startup script
  .streamlit/
     config.toml                 # Streamlit configuration
