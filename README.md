@@ -34,42 +34,24 @@ Experience the tool instantly! No installation required - try the web applicatio
 
 ## 📸 Demo & Screenshots
 
-### 🎥 Video Demo
+### 🎥 Live Demo
 
-> **Recording Coming Soon!**  
-> A comprehensive video walkthrough will be added here to demonstrate:
-> - How to use the web interface
-> - Real-time memory estimation with different models
-> - Optimization techniques comparison
-> - Deployment workflow
+**Try it now**: https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
 
-### Screenshots
+> **Video walkthrough coming soon!**  
+> A comprehensive screencast will be added to demonstrate the web interface in action.
 
-#### 1. Web Interface Overview
+### Key Features Shown
+
+The web interface provides:
+
+- **Automatic Model Detection**: Enter any Hugging Face model name (e.g., `meta-llama/Llama-3.3-70B-Instruct`) and parameters are fetched automatically
+- **Real-time Configuration**: Adjust precision (FP32/FP16/INT8/INT4), batch size, sequence length with interactive controls
+- **Optimization Toggles**: Enable/disable FlashAttention and Grouped Query Attention
+- **Detailed Breakdown**: See parameter memory, activation memory, KV cache, and total estimates
+- **Visual Results**: Clear memory distribution and hardware recommendations
 
 ![Web Interface](docs/images/1.png)
-
-The Streamlit-based web interface provides an intuitive way to estimate LLM inference memory. Simply enter a model name from Hugging Face (e.g., `meta-llama/Llama-3.3-70B-Instruct`), and the tool automatically fetches model parameters.
-
-#### 2. Interactive Parameter Configuration
-
-![Parameter Configuration](docs/images/2.png)
-
-Adjust inference parameters in real-time:
-- **Precision**: FP32, FP16, INT8, INT4
-- **Batch Size**: Number of concurrent requests
-- **Sequence Length**: Maximum tokens per request
-- **Optimizations**: FlashAttention, Grouped Query Attention
-
-#### 3. Detailed Memory Breakdown
-
-![Memory Analysis Results](docs/images/3.png)
-
-Get comprehensive memory analysis showing:
-- **Parameter Memory**: Model weights storage based on precision
-- **Activation Memory**: Intermediate tensors during computation
-- **KV Cache Memory**: Cached key-value pairs for generation
-- **Total Estimate**: Overall memory requirement with recommendations
 
 ---
 
