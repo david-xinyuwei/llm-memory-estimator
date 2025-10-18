@@ -4,7 +4,8 @@
 # Core dependencies
 streamlit>=1.28.0
 transformers>=4.30.0
-# PyTorch CPU-only (will use pip.conf to get CPU version from PyTorch repo)
+# PyTorch CPU-only - explicitly install from PyTorch CPU repository
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch>=2.0.0
 
 # Optional: For Jupyter Notebook support
