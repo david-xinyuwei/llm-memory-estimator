@@ -1,0 +1,21 @@
+{
+  "$schema": "https://azd.io/schemas/v1/azd-template.schema.json",
+  "name": "llm-memory-estimator",
+  "metadata": {
+    "template": "llm-memory-estimator@0.1.0",
+    "description": "A comprehensive tool for estimating memory consumption of Large Language Models (LLMs) during inference with one-click Azure deployment.",
+    "author": "David Wei",
+    "tags": [
+      "azd-templates",
+      "ai",
+      "llm",
+      "machine-learning",
+      "streamlit",
+      "python",
+      "azure-app-service",
+      "memory-estimation",
+      "huggingface",
+      "transformers"
+    ]
+  }
+}
