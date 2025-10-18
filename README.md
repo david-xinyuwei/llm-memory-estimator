@@ -537,6 +537,141 @@ This tool provides **estimates** based on standard transformer architectures. Ac
 
 ---
 
+## Troubleshooting
+
+### Azure Deployment Issues
+
+#### Deployment Conflict Error
+
+If you see `409 Conflict: There is a deployment currently in progress`:
+
+```bash
+# Wait for the current deployment to complete (5-10 minutes)
+sleep 300
+
+# Then retry
+azd deploy
+```
+
+#### Cancel Stuck Deployment
+
+If a deployment is stuck or failed, cancel it:
+
+**On Linux:**
+```bash
+az webapp deployment source delete \
+  --name <your-app-name> \
+  --resource-group <your-resource-group>
+
+# Example:
+az webapp deployment source delete \
+  --name llm-mem-eastus-xxx \
+  --resource-group A100VM_group
+```
+
+**On Windows:**
+```powershell
+az webapp deployment source delete `
+  --name <your-app-name> `
+  --resource-group <your-resource-group>
+```
+
+#### Disk Space Error
+
+If you see `No space left on device` during build:
+
+- **Current SKU**: The project uses B2 App Service Plan (3.5GB RAM, ~14GB disk)
+- **Issue**: PyTorch installation requires ~4GB temporary space
+- **Solution**: Already configured in `infra/main.bicep` with B2 SKU
+
+#### Build Timeout
+
+If build exceeds default timeout:
+
+- **Current Settings**: 60-minute timeout already configured
+- **Check Settings**:
+  ```bash
+  az webapp config appsettings list \
+    --name <your-app-name> \
+    --resource-group <your-resource-group> \
+    --query "[?name=='SCM_COMMAND_IDLE_TIMEOUT' || name=='ORYX_BUILD_TIMEOUT']"
+  ```
+
+#### View Deployment Logs
+
+**Option 1: Browser**
+```
+https://<your-app-name>.scm.azurewebsites.net/api/deployments/latest
+```
+
+**Option 2: Azure CLI**
+```bash
+az webapp log tail \
+  --name <your-app-name> \
+  --resource-group <your-resource-group>
+```
+
+**Option 3: Azure Portal**
+1. Navigate to your App Service
+2. Click "Deployment Center"
+3. View "Logs" tab
+
+#### Clean Up Resources
+
+**Remove all Azure resources:**
+```bash
+# ⚠️ WARNING: This deletes ALL resources in the resource group!
+azd down --force --purge
+```
+
+**Remove only the environment configuration (keep Azure resources):**
+```bash
+rm -rf .azure/<environment-name>
+```
+
+**Upgrade App Service Plan SKU:**
+```bash
+az appservice plan update \
+  --name <plan-name> \
+  --resource-group <resource-group> \
+  --sku B3  # Upgrade to B3 (2 cores, 7GB RAM)
+```
+
+### Local Deployment Issues
+
+#### Python Version Mismatch
+
+Ensure Python 3.8+ is installed:
+
+```bash
+python --version  # Should be 3.8 or higher
+```
+
+#### Module Not Found
+
+```bash
+# Activate virtual environment first
+source venv/bin/activate  # Linux/Mac
+# or
+venv\Scripts\activate     # Windows
+
+# Reinstall dependencies
+pip install -r requirements.txt
+```
+
+#### Streamlit Port Already in Use
+
+```bash
+# Linux/Mac: Find and kill process on port 8000
+lsof -ti:8000 | xargs kill -9
+
+# Windows: Find and kill process on port 8000
+netstat -ano | findstr :8000
+taskkill /PID <PID> /F
+```
+
+---
+
 ## Limitations
 
 ### Current Limitations
