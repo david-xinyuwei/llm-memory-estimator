@@ -17,15 +17,6 @@ A comprehensive tool for estimating memory consumption of Large Language Models 
 
 https://github.com/user-attachments/assets/aa077bd8-ed9e-4e0a-86b2-7b396f0cc638
 
-### Key Features
-
-- **Automatic Model Detection**: Fetches model architecture from Hugging Face Hub (e.g., `meta-llama/Llama-3.3-70B-Instruct`)
-- **Manual Parameter Input**: Enter model parameters (billions) and sequence length for accurate estimation
-- **Real-time Configuration**: Adjust precision (FP32/FP16/INT8/INT4), batch size with interactive sliders
-- **Optimization Toggles**: Enable/disable FlashAttention and Grouped Query Attention (GQA)
-- **Detailed Breakdown**: View parameter memory, activation memory, KV cache, and total estimates
-- **Visual Results**: Clear memory distribution with hardware recommendations
-
 ## Table of Contents
 
 - [🚀 Live Demo](#-live-demo)
