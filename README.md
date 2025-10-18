@@ -37,6 +37,10 @@ Experience the tool instantly - no installation required!
 > **Video walkthrough coming soon!**  
 > A comprehensive screencast will be added to demonstrate the web interface in action.
 
+https://github.com/user-attachments/assets/aa077bd8-ed9e-4e0a-86b2-7b396f0cc638
+
+
+
 ### Key Features
 
 - **Automatic Model Detection**: Fetches model architecture from Hugging Face Hub (e.g., `meta-llama/Llama-3.3-70B-Instruct`)
