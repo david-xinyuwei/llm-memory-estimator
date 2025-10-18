@@ -5,7 +5,7 @@
 streamlit>=1.28.0
 transformers>=4.30.0
 # PyTorch CPU-only (will use pip.conf to get CPU version from PyTorch repo)
-torch==2.0.1
+torch>=2.0.0
 
 # Optional: For Jupyter Notebook support
 # jupyter>=1.0.0
