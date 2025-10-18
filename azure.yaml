@@ -8,6 +8,9 @@ infra:
   provider: bicep
   path: infra
   module: main
+  parameters:
+    environmentName: ${AZURE_ENV_NAME}
+    location: ${AZURE_LOCATION}
 
 services:
   web:
