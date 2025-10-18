@@ -8,38 +8,14 @@
 
 A comprehensive tool for estimating memory consumption of Large Language Models (LLMs) during inference. Supports CLI and Web interfaces with one-click deployment to Azure.
 
-## 🚀 Try It Now!
+## 🚀 Live Demo
 
-**[✨ Live Demo →](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)**
-
-Experience the tool instantly - no installation required!
-
-## Table of Contents
-
-- [🚀 Try It Now!](#-try-it-now)
-- [📸 Live Demo](#-live-demo)
-- [Scenario](#scenario)
-- [✨ Features](#-features)
-- [Azure One-Click Deployment](#azure-one-click-deployment)
-- [Local Deployment](#local-deployment)
-- [Usage Options](#usage-options)
-- [Architecture](#architecture)
-- [Memory Calculation Formula](#memory-calculation-formula)
-- [Limitations](#limitations)
-- [Contributing](#contributing)
-
----
-
-## 📸 Live Demo
-
-**🌐 Try it now**: https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
+**[✨ Try it now →](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)** - Experience the tool instantly, no installation required!
 
 > **Video walkthrough coming soon!**  
 > A comprehensive screencast will be added to demonstrate the web interface in action.
 
 https://github.com/user-attachments/assets/aa077bd8-ed9e-4e0a-86b2-7b396f0cc638
-
-
 
 ### Key Features
 
@@ -49,6 +25,19 @@ https://github.com/user-attachments/assets/aa077bd8-ed9e-4e0a-86b2-7b396f0cc638
 - **Optimization Toggles**: Enable/disable FlashAttention and Grouped Query Attention (GQA)
 - **Detailed Breakdown**: View parameter memory, activation memory, KV cache, and total estimates
 - **Visual Results**: Clear memory distribution with hardware recommendations
+
+## Table of Contents
+
+- [🚀 Live Demo](#-live-demo)
+- [Scenario](#scenario)
+- [✨ Features](#-features)
+- [Azure One-Click Deployment](#azure-one-click-deployment)
+- [Local Deployment](#local-deployment)
+- [Usage Options](#usage-options)
+- [Architecture](#architecture)
+- [Memory Calculation Formula](#memory-calculation-formula)
+- [Limitations](#limitations)
+- [Contributing](#contributing)
 
 ---
 
@@ -83,7 +72,6 @@ This tool provides accurate memory estimates by considering:
 - **⚡ Real-time Calculations**: Instant results as you adjust parameters
 - **🎨 Multiple Interfaces**: CLI and Web UI
 - **☁️ One-Click Azure Deployment**: Deploy to cloud in minutes with `azd up`
-- **🌐 Live Demo Available**: Try it now at https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
 - **🔧 Optimization Analysis**: Compare FlashAttention, GQA, and quantization effects
 - **📊 Visual Breakdown**: Understand memory distribution across components
 
