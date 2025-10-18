@@ -30,25 +30,44 @@ No installation required! Try the web application directly in your browser.
 
 ---
 
-## 📸 Screenshots
+## 📸 Demo & Screenshots
 
-### Web Interface
+### 🎥 Video Demo
 
-![Web Interface Screenshot](docs/images/1.png)
+> **Recording Coming Soon!**  
+> A comprehensive video walkthrough will be added here to demonstrate:
+> - How to use the web interface
+> - Real-time memory estimation with different models
+> - Optimization techniques comparison
+> - Deployment workflow
 
-*Interactive Streamlit web interface for real-time memory estimation*
+### Screenshots
 
-### Model Configuration
+#### 1. Web Interface Overview
 
-![Model Configuration](docs/images/2.png)
+![Web Interface](docs/images/1.png)
 
-*Automatic model parameter detection from Hugging Face*
+The Streamlit-based web interface provides an intuitive way to estimate LLM inference memory. Simply enter a model name from Hugging Face (e.g., `meta-llama/Llama-3.3-70B-Instruct`), and the tool automatically fetches model parameters.
 
-### Memory Results
+#### 2. Interactive Parameter Configuration
 
-![Memory Results](docs/images/3.png)
+![Parameter Configuration](docs/images/2.png)
 
-*Detailed memory breakdown with optimization recommendations*
+Adjust inference parameters in real-time:
+- **Precision**: FP32, FP16, INT8, INT4
+- **Batch Size**: Number of concurrent requests
+- **Sequence Length**: Maximum tokens per request
+- **Optimizations**: FlashAttention, Grouped Query Attention
+
+#### 3. Detailed Memory Breakdown
+
+![Memory Analysis Results](docs/images/3.png)
+
+Get comprehensive memory analysis showing:
+- **Parameter Memory**: Model weights storage based on precision
+- **Activation Memory**: Intermediate tensors during computation
+- **KV Cache Memory**: Cached key-value pairs for generation
+- **Total Estimate**: Overall memory requirement with recommendations
 
 ---
 
@@ -86,13 +105,22 @@ This tool provides accurate memory estimates by considering:
 - **🔧 Optimization Analysis**: Compare FlashAttention, GQA, and quantization effects
 - **📊 Visual Breakdown**: Understand memory distribution across components
 
-### 🛠️ Supported Models
+### 🛠️ Model Support
 
-- **Llama Family**: Llama 2, Llama 3, Llama 3.1, Llama 3.3
-- **Mistral**: Mistral 7B, Mixtral 8x7B
-- **Qwen**: Qwen 1.5, Qwen 2, Qwen 2.5
-- **DeepSeek**: DeepSeek-V2, DeepSeek-Coder
-- **And more**: Any Hugging Face transformer model
+This tool works with **any Hugging Face transformer model** by automatically loading model configurations via the `transformers` library.
+
+**How it works**:
+- Fetches model architecture from Hugging Face Hub using `AutoConfig.from_pretrained()`
+- Automatically extracts: hidden layers, hidden size, attention heads, KV heads (for GQA)
+- Detects Grouped Query Attention (GQA) support automatically
+- No model-specific code required
+
+**Example models you can try**:
+- `meta-llama/Llama-3.3-70B-Instruct`
+- `mistralai/Mistral-7B-v0.1`
+- `Qwen/Qwen2.5-72B-Instruct`
+- `deepseek-ai/DeepSeek-V2`
+- Or any other model on Hugging Face with standard transformer architecture
 
 ### 🎛️ Customization Options
 
@@ -227,31 +255,7 @@ All resources are:
 - **Infrastructure as Code** (Bicep templates)
 - **Environment isolated** (dev/test/prod)
 
-#### Cost Estimation
-
-**Development (Free Tier - F1 SKU)**:
-```
-App Service Plan (F1):  $0/month
-Application Insights:   $0/month (free tier)
-Total:                  $0/month
-```
-F1 limitations: 60 min/day CPU quota, 1GB disk, no custom domain
-
-**Production (Basic Tier - B1 SKU)**:
-```
-App Service Plan (B1):  ~$55/month
-Application Insights:   ~$5/month
-Log Analytics:          $0 (5GB free quota)
-Total:                  ~$60/month
-```
-
-To use free tier, edit `infra/main.bicep` before deployment:
-```bicep
-sku: {
-  name:  F1
-  tier:  Free
-}
-```
+> **Note**: Azure pricing varies by region and subscription type. Check [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) for current costs.
 
 #### Environment Variables
 
