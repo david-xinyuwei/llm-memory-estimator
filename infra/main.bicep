@@ -2,11 +2,11 @@ targetScope = 'resourceGroup'
 
 @minLength(1)
 @maxLength(64)
-@description('Name of the environment that can be used as part of naming resource convention')
+@description('Environment name (e.g., dev, prod, llm-prod). Used for resource naming. Should match your azd environment name.')
 param environmentName string
 
 @minLength(1)
-@description('Primary location for all resources')
+@description('Azure region for deployment (e.g., eastus, westus2)')
 param location string = resourceGroup().location
 
 @description('Id of the user or app to assign application roles')
