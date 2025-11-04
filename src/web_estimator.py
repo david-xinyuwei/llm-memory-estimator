@@ -2,25 +2,83 @@ import os
 import streamlit as st  
 from transformers import AutoConfig  
   
-def main():  
-    st.title("Model Memory Consumption Calculator")  
-  
-    st.write("**Note:** Ensure that your environment has internet access to Hugging Face and that you have set your Hugging Face API token.")  
-  
-    # Input model name  
-    model_name = st.text_input("Enter the model name from Hugging Face:")  
-  
-    if model_name:  
-        try:  
-            # Set Hugging Face API token if available  
-            hf_token = os.getenv('HF_API_TOKEN')  
-            if not hf_token:  
-                hf_token = st.text_input("Enter your Hugging Face API token:", type="password")  
-                if hf_token:  
-                    os.environ['HF_API_TOKEN'] = hf_token  
-  
-            if not hf_token:  
-                st.error("Hugging Face API token is required. Please set it in the environment variable 'HF_API_TOKEN' or enter it above.")  
+def main():
+    st.title("🤖 Model Memory Consumption Calculator")
+
+    # Initialize session state for token persistence
+    if 'hf_token' not in st.session_state:
+        st.session_state.hf_token = os.getenv('HF_API_TOKEN', '')
+    if 'token_saved' not in st.session_state:
+        st.session_state.token_saved = False
+
+    # Token configuration section at the top
+    st.markdown("### 🔑 Hugging Face API Token Configuration")
+
+    with st.expander("⚙️ Click here to configure your HF Token", expanded=not st.session_state.hf_token):
+        st.info("💡 Get your free token at: [huggingface.co/settings/tokens](https://huggingface.co/settings/tokens)")
+        st.caption("⏰ **Token Expiration:** HF tokens don't expire by default unless you set an expiration date when creating them.")
+
+        col1, col2, col3 = st.columns([4, 1, 1])
+
+        with col1:
+            token_input = st.text_input(
+                "Enter your Hugging Face API Token:",
+                value="",
+                type="password",
+                placeholder="hf_...",
+                key="token_input_field",
+                help="Required for accessing model configurations from Hugging Face Hub"
+            )
+
+        with col2:
+            st.write("")  # Spacing
+            st.write("")  # Spacing
+            save_button = st.button("💾 Save", type="primary", use_container_width=True)
+        
+        with col3:
+            st.write("")  # Spacing
+            st.write("")  # Spacing
+            clear_button = st.button("🗑️ Clear", use_container_width=True)
+
+        if save_button:
+            if token_input:
+                st.session_state.hf_token = token_input
+                st.session_state.token_saved = True
+                st.success("✅ Token saved! (Session only)")
+                st.rerun()
+            else:
+                st.error("❌ Please enter a valid token")
+        
+        if clear_button:
+            st.session_state.hf_token = ""
+            st.session_state.token_saved = False
+            st.warning("🗑️ Token cleared from session")
+            st.rerun()
+
+        # Token status indicator
+        if st.session_state.hf_token:
+            st.success("🟢 Token is configured and ready to use")
+            st.caption("🔒 Your token is stored securely in your browser session only")
+        else:
+            st.warning("🟡 No token configured - Please enter your token above")
+
+    st.markdown("---")
+
+    # Input model name
+    model_name = st.text_input(
+        "🔍 Enter the model name from Hugging Face:",
+        placeholder="e.g., meta-llama/Llama-3.3-70B-Instruct, microsoft/phi-4",
+        help="Enter any model name from Hugging Face Hub"
+    )
+
+    if model_name:
+        try:
+            # Use token from session state
+            hf_token = st.session_state.hf_token
+
+            if not hf_token:
+                st.error("❌ Hugging Face API token is required. Please configure it above.")
+                st.info("👉 Click the configuration section above to enter your token")
                 return  
   
             # Load model configuration from Hugging Face  
