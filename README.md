@@ -4,13 +4,13 @@
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Azure](https://img.shields.io/badge/Azure-Ready-0078D4?logo=microsoft-azure)](https://azure.microsoft.com/)
 [![Golden Path](https://img.shields.io/badge/Golden%20Path-Compliant-gold?logo=github)](https://github.com/Azure-Samples/azd-golden-paths)
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-success?logo=streamlit)](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-success?logo=streamlit)](https://llm-mem-david-2026-tjwdllrdvwj6y.azurewebsites.net/)
 
 A comprehensive tool for estimating memory consumption of Large Language Models (LLMs) during inference. Supports CLI and Web interfaces with one-click deployment to Azure.
 
 ## 🚀 Live Demo
 
-**[✨ Try it now →](https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/)** - Experience the tool instantly, no installation required!
+**[✨ Try it now →](https://llm-mem-david-2026-tjwdllrdvwj6y.azurewebsites.net/)** - Experience the tool instantly, no installation required!
 
 > **Video walkthrough coming soon!**  
 > A comprehensive screencast will be added to demonstrate the web interface in action.
@@ -336,7 +336,7 @@ This tool provides two interfaces for different use cases:
 
 ### 1. Web Interface (Recommended)
 
-**🌐 Online Demo**: https://llm-mem-david123-dqaagwkki5pjm.azurewebsites.net/
+**🌐 Online Demo**: https://llm-mem-david-2026-tjwdllrdvwj6y.azurewebsites.net/
 
 Best for: Interactive exploration, parameter tuning, visualization
 
