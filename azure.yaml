@@ -17,8 +17,3 @@ services:
     project: .
     language: python
     host: appservice
-    hooks:
-      prepackage:
-        shell: sh
-        run: echo "Preparing deployment package..."
-        continueOnError: false
