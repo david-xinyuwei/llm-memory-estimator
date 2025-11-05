@@ -5,7 +5,8 @@
 streamlit>=1.28.0
 transformers>=4.30.0
 # PyTorch CPU-only version for faster deployment and smaller size
-torch>=2.0.0 --index-url https://download.pytorch.org/whl/cpu
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch>=2.0.0
 
 # Optional: For Jupyter Notebook support
 # jupyter>=1.0.0
